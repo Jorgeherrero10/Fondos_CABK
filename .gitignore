@@ -1,0 +1,32 @@
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Data (if you want to keep funds.xlsx private)
+# funds.xlsx
+
+# Exports
+fondos_recomendados.csv
+top_10_fondos.csv
+
+# Logs
+*.log
