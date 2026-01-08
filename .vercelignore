@@ -1,0 +1,50 @@
+# Vercel ignore patterns
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+*.md
+
+# Development files
+.env.local
+.env.development
+
+# Notebook files (not needed for deployment)
+*.ipynb
+.ipynb_checkpoints/
+
+# Docker files (not needed for Vercel)
+Dockerfile
+docker-compose.yml
+
+# Heroku files (not needed for Vercel)
+Procfile
+runtime.txt
+setup.sh

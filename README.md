@@ -261,29 +261,70 @@ Streamlit Cloud es la plataforma nativa y gratuita para desplegar aplicaciones S
 
 ### ⚠️ Nota sobre Vercel
 
-Vercel está optimizado para aplicaciones frontend estáticas y Next.js. **Streamlit NO es compatible nativamente con Vercel** ya que requiere un servidor Python persistente.
+**IMPORTANTE:** Streamlit requiere un servidor WebSocket persistente y **NO es totalmente compatible con la arquitectura serverless de Vercel**. Sin embargo, se han incluido archivos de configuración para intentos experimentales:
 
-**Alternativas recomendadas:**
-- **Streamlit Cloud** (gratuito, más fácil, nativo)
-- **Heroku** (fácil configuración con Procfile incluido)
+#### Archivos de configuración Vercel incluidos:
+- `vercel.json` - Configuración de deployment
+- `.vercelignore` - Archivos a excluir del deployment
+- `.streamlit/config.toml` - Configuración optimizada para deployment
+
+#### Limitaciones conocidas:
+- ⚠️ Las funciones serverless de Vercel tienen un timeout máximo (10-60 segundos)
+- ⚠️ Streamlit requiere conexiones WebSocket persistentes
+- ⚠️ El rendimiento puede ser limitado o inestable
+
+#### Para intentar desplegar en Vercel:
+
+1. **Instala Vercel CLI**
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Despliega**
+   ```bash
+   vercel
+   ```
+
+3. **Seguimiento**
+   - Vercel detectará automáticamente Python
+   - Usará el `vercel.json` incluido
+   - El deployment puede tener limitaciones funcionales
+
+**Alternativas recomendadas (más estables):**
+- **Streamlit Cloud** ⭐ (gratuito, más fácil, nativo, **RECOMENDADO**)
+- **Railway** (alternativa moderna, fácil setup)
+- **Render** (plan gratuito disponible)
+- **Heroku** (configuración incluida con Procfile)
 - **Google Cloud Run** (escalable, pago por uso)
-- **Railway** (alternativa moderna a Heroku)
 - **AWS EC2/ECS** (mayor control)
+- **DigitalOcean App Platform** (simple y efectivo)
 
-Si necesitas frontend en Vercel, considera arquitectura híbrida:
-- Frontend (React/Next.js) en Vercel
-- Backend/Streamlit en Streamlit Cloud o Heroku
-- Comunicación via API
+#### Arquitectura híbrida (si necesitas Vercel):
+Si requieres usar Vercel para otras partes de tu stack:
+- Frontend (React/Next.js) → Vercel ✅
+- Backend API/Streamlit → Streamlit Cloud/Railway/Render ✅
+- Comunicación vía REST API o integración
 
 ### Archivos de Configuración Incluidos
 
-Este proyecto incluye:
+Este proyecto incluye configuraciones para múltiples plataformas:
+
+#### Para Streamlit Cloud / Heroku / Railway:
 - ✅ `requirements.txt` - Dependencias de Python
 - ✅ `.streamlit/config.toml` - Configuración de Streamlit
 - ✅ `Procfile` - Para despliegue en Heroku
 - ✅ `runtime.txt` - Especifica versión de Python
 - ✅ `setup.sh` - Script de configuración
 - ✅ `.gitignore` - Archivos a ignorar en Git
+
+#### Para Vercel (Experimental):
+- ✅ `vercel.json` - Configuración de deployment para Vercel
+- ✅ `.vercelignore` - Archivos a excluir del deployment
+- ✅ `build.sh` - Script de build para Vercel
+
+#### Para Docker:
+- ✅ `Dockerfile` - Imagen de contenedor
+- ✅ `docker-compose.yml` - Orquestación de contenedores
 
 ## 🤝 Contribuciones
 

@@ -30,3 +30,23 @@ top_10_fondos.csv
 
 # Logs
 *.log
+
+# Vercel
+.vercel
+.vercel/
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
